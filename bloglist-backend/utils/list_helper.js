@@ -13,7 +13,7 @@ const favoriteBlog = (blogs) => {
 
   const { title, author, url, likes } = blogs.sort((b1, b2) => b2.likes - b1.likes)[0]
 
-  return { title, author, url, likes } 
+  return { title, author, url, likes }
 }
 
 const mostBlogs = (blogs) => {
@@ -25,7 +25,7 @@ const mostBlogs = (blogs) => {
 
   const authorBlogs = Object.entries(blogsByAuthor).reduce((array, [author, blogList]) => {
     return array.concat({
-      author, 
+      author,
       blogs: blogList.length
     })
   }, [])
@@ -42,7 +42,7 @@ const mostLikes = (blogs) => {
 
   const authorBlogs = Object.entries(blogsByAuthor).reduce((array, [author, blogList]) => {
     return array.concat({
-      author, 
+      author,
       likes: blogList.reduce((sum, blog) => sum + blog.likes, 0)
     })
   }, [])
