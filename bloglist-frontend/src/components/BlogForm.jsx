@@ -7,9 +7,9 @@ const BlogForm = ({ createBlog }) => {
     url: ''
   })
 
-  const addBlog = (event) => {
+  const addBlog = async (event) => {
     event.preventDefault()
-    createBlog({
+    await createBlog({
       title: newBlog.title,
       author: newBlog.author,
       url: newBlog.url
@@ -47,7 +47,7 @@ const BlogForm = ({ createBlog }) => {
           id='url-input'
         />
       </div>
-      <button type="submit">create</button>
+      <button id='submit-button' type="submit">create</button>
     </form>
   )
 }

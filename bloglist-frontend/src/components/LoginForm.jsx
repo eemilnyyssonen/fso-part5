@@ -6,7 +6,7 @@ const LoginForm = ({ addUser }) => {
 
   const handleLogin = async (event) => {
     event.preventDefault()
-    addUser(username, password)
+    await addUser(username, password)
     setUsername('')
     setPassword('')
   }
@@ -20,6 +20,7 @@ const LoginForm = ({ addUser }) => {
           value={username}
           name="Username"
           onChange={({ target }) => setUsername(target.value)}
+          id='username'
         />
       </div>
       <div>
@@ -29,9 +30,10 @@ const LoginForm = ({ addUser }) => {
           value={password}
           name="Password"
           onChange={({ target }) => setPassword(target.value)}
+          id='password'
         />
       </div>
-      <button type="submit">login</button>
+      <button id='login-button' type="submit">login</button>
     </form>
   )
 }
