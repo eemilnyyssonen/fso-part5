@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const Blog = ({ blog, updateBlog, deleteBlog }) => {
+const Blog = ({ blog, updateBlog, deleteBlog, user }) => {
   const [visible, setVisible] = useState(false)
-  const user = JSON.parse(window.localStorage.getItem('loggedBlogsappUser'))
   const hideWhenVisible = { display: visible ? 'none' : '' }
   const showWhenVisible = { display: visible ? '' : 'none' }
   const showRemoveButton = { display: user.username === blog.user.username ? '' : 'none' }
@@ -35,10 +34,10 @@ const Blog = ({ blog, updateBlog, deleteBlog }) => {
 
   return (
     <div style={blogStyle}>
-      <div style={hideWhenVisible}>
+      <div style={hideWhenVisible} className='defaultContent'>
         {blog.title} {blog.author} <button onClick={toggleVisibility}>view</button>
       </div>
-      <div style={showWhenVisible}>
+      <div style={showWhenVisible} className='showableContent'>
         {blog.title} {blog.author} <button onClick={toggleVisibility}>hide</button> <br/>
         <a href={blog.url}>{blog.url}</a>
         <br/>
